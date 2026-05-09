@@ -1,4 +1,4 @@
-# Yeramkov Ilya IT 2503
+# Yermakov Ilya IT 2503
 
 <img width="663" height="567" alt="изображение" src="https://github.com/user-attachments/assets/892fb327-1eeb-4acb-81d7-d90f2a7f39de" />
 
