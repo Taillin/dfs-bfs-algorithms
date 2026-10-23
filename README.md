@@ -71,4 +71,4 @@ Cannot guarantee shortest path. Risks stack overflow on very deep graphs due to 
 
 ## Author
 
-**Yermakov Ilya** — IT-2503
+**Yermakov Ilya**
