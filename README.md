@@ -1,25 +1,74 @@
-# Yermakov Ilya IT 2503
+# DFS & BFS Graph Algorithms
 
-<img width="663" height="567" alt="изображение" src="https://github.com/user-attachments/assets/892fb327-1eeb-4acb-81d7-d90f2a7f39de" />
+> A Java implementation and performance comparison of two fundamental graph traversal algorithms — Depth-First Search (DFS) and Breadth-First Search (BFS) — with automated benchmarking on graphs of varying sizes.
 
-# Analysis Questions 
+## Features
 
-1. How does graph size affect BFS and DFS performance?
-   The size of graph have affect on both search perfomance this increas complexity of algorithm. If I increas the number of nodes and edges in 10 times complexity also will in 10 times greater
+- **Graph construction** — Add vertices and directed edges via adjacency list
+- **BFS traversal** — Iterative, using `Queue` + `HashSet` for visited tracking
+- **DFS traversal** — Recursive, using `HashSet` for visited tracking
+- **Benchmarking** — Measure and compare execution time in nanoseconds
+- **Random graph generation** — Auto-generate graphs of different sizes for experiments
 
-2. Which traversal is faster in your experiments?
-   Usually DSF is faster than BSF because it uses recursion and it works with stack and with CPU exactly but BSF works with LinkedList it just need more time because it create queue.
+## 🛠️ Tech Stack
 
-3. Do results match the expected complexity O(V + E)?
-   Yes, they do. Experiments show that time increases predictably. There are no sharp jumps (for example, by a factor of 100 when the graph is only twice as large), which are common with poor algorithms. This confirms that both methods traverse the graph efficiently, without unnecessary round trips.
+- **Language:** Java
+- **Data Structures:** `HashMap`, `ArrayList`, `Queue`, `HashSet`
+- **Paradigm:** OOP + Recursion
 
-4. How does graph structure affect traversal order?
-   DFS work in inner of graph if your graph will be very deep is need more time for traversal and for BSF if graph will have a lot of neighbors it need more time
+## Project Structure
 
-5. When is BFS preferred over DFS?
-  BFS king when you need to find the shortest path in a regular graph. For example the shortest way to find market and so on.
+```
+src/
+├── Main.java          # Entry point — runs experiments
+├── Graph.java         # Graph (adjacency list + BFS + DFS)
+├── Vertex.java        # Vertex entity
+├── Edge.java          # Edge entity (source → destination)
+└── Experiment.java    # Random graph generation + benchmarking
+```
 
-6. What are the limitations of DFS?
-   DFS can't find the shortest way and it can find the most longer way even the goal been in next node. The second disadv. is stack overflow risk, if graph is too deep recursion will break the memory, BFS does not have this problem because it store data in common RAM instead of stack
+## Algorithm Details
 
-   
+### BFS — Breadth-First Search
+- **Approach:** Iterative
+- **Structures:** `Queue<Integer>` + `HashSet<Integer>`
+- **Complexity:** O(V + E)
+- **Best for:** Shortest path in unweighted graphs
+
+### DFS — Depth-First Search
+- **Approach:** Recursive
+- **Structures:** Call stack + `HashSet<Integer>`
+- **Complexity:** O(V + E)
+- **Best for:** Cycle detection, topological sort, maze solving
+
+## Benchmark Setup
+
+| Graph | Vertices | Edges |
+|-------|----------|-------|
+| Small | 10 | 15 |
+| Medium | 30 | 35 |
+| Large | 100 | 110 |
+
+Times measured in **nanoseconds** via `System.nanoTime()`.
+
+## 📈 Analysis
+
+**Which is faster?**
+DFS is typically faster because it uses the call stack (CPU cache-friendly), while BFS allocates a `LinkedList`-backed queue on the heap.
+
+**When to prefer BFS?**
+When you need the shortest path in an unweighted graph.
+
+**Limitations of DFS?**
+Cannot guarantee shortest path. Risks stack overflow on very deep graphs due to recursion depth.
+
+## Key Learnings
+
+- Graph representation via adjacency list
+- Trade-offs between iterative (BFS) and recursive (DFS) approaches
+- Performance measurement with `System.nanoTime()`
+- How graph depth vs breadth affects traversal order
+
+## Author
+
+**Yermakov Ilya** — IT-2503
